@@ -1,15 +1,24 @@
 # PHPStyle
 
-A slim wrapper around PHPCSFixer with simple to use opinionated configs.
+A slim opinionated wrapper around PHPCSFixer.
 
-First require the package
+This comes preloaded with sane style choices for most PHP applications. You should be able to safely run it on most code out of the box.
+
+## Setup
+1. Require the package
 ```neon
 composer require jspaetzel/phpstyle-setup --dev
 ```
 
-Once configured run the setup script: `./vendor/bin/phpstyle-setup`
+2. Run the setup script to download php-cs-fixer and create default configs: 
 
-The script will download php-cs-fixer and create bootstrapping files. You can now customize the configuration for your application by modifying the `phpstyle.neon` file.
+```
+./vendor/bin/phpstyle-setup`
+```
 
-Once configured you use the normal php-cs-fixer script to run fixes or analysis.
-`./vendor/bin/php-cs-fixer fix`
+3. Review the `phpstyle.neon` file and make changes if desired
+
+4. Run the php-cs-fixer
+```bash
+./vendor/bin/php-cs-fixer fix
+```
