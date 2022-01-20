@@ -1,12 +1,12 @@
 #!/bin/bash
-# Downloads php-cs-fixer if needed, loads phpstyle-setup.neon, and runs the fixer.
+# Downloads php-cs-fixer if needed, loads phpstyle.neon, and runs the fixer.
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 BASE_NAME=$(basename "$SCRIPT_DIR")
 if [ $BASE_NAME == 'bin' ]; then
   # We're in the bin folder, use vendor folder for scripts
-  SCRIPT_DIR="../jspaetzel/phpstyle/"
+  SCRIPT_DIR="./vendor/jspaetzel/phpstyle"
 fi
 
 FIXER_BIN="$PWD/vendor/bin/php-cs-fixer"
