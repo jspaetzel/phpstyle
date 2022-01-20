@@ -27,5 +27,3 @@ if [ ! -f $PHP_CS_CONFIG ]; then
   echo "Creating .php-cs-fixer.dist.php file"
   cp "$SCRIPT_DIR/.php-cs-fixer.dist.php" "$PHP_CS_CONFIG"
 fi
-
-$FIXER_BIN fix
