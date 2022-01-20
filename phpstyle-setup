@@ -1,0 +1,31 @@
+#!/bin/bash
+# Downloads php-cs-fixer if needed, loads phpstyle-setup.neon, and runs the fixer.
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+BASE_NAME=$(basename "$SCRIPT_DIR")
+if [ $BASE_NAME == 'bin' ]; then
+  # We're in the bin folder, use vendor folder for scripts
+  SCRIPT_DIR="../jspaetzel/phpstyle/"
+fi
+
+FIXER_BIN="$PWD/vendor/bin/php-cs-fixer"
+if [ ! -f $FIXER_BIN ]; then
+  echo "Downloading php-cs-fixer"
+  wget https://cs.symfony.com/download/php-cs-fixer-v3.phar -O $FIXER_BIN
+  chmod +x $FIXER_BIN
+fi
+
+LOCAL_NEON="$PWD/phpstyle.neon"
+if [ ! -f "$LOCAL_NEON" ]; then
+  echo "Copying default phpstyle.neon file"
+  cp "$SCRIPT_DIR/phpstyle.neon" "$LOCAL_NEON"
+fi
+
+PHP_CS_CONFIG="$PWD/.php-cs-fixer.dist.php"
+if [ ! -f $PHP_CS_CONFIG ]; then
+  echo "Creating .php-cs-fixer.dist.php file"
+  cp "$SCRIPT_DIR/.php-cs-fixer.dist.php" "$PHP_CS_CONFIG"
+fi
+
+$FIXER_BIN fix

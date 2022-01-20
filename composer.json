@@ -7,6 +7,9 @@
     "php": "^7.1|^8.0",
     "nette/neon": "^3.3"
   },
+  "bin": [
+    "phpstyle-setup"
+  ],
   "autoload": {
     "psr-4": {
       "PHPStyle\\": "src/"
