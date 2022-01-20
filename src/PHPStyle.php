@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PHPStyle;
 
 use Nette\Neon\Neon;
@@ -9,6 +11,16 @@ use PhpCsFixer\Finder;
 
 class PHPStyle
 {
+    private const PHPVERSION_RULE_MAP = [
+        '7.0' => '@PHP70Migration',
+        '7.1' => '@PHP71Migration',
+        '7.2' => '@PHP72Migration',
+        '7.3' => '@PHP73Migration',
+        '7.4' => '@PHP74Migration',
+        '8.0' => '@PHP80Migration',
+        '8.1' => '@PHP81Migration',
+    ];
+
     public function getStyleConfig($path): StyleConfig
     {
         $value = Neon::decodeFile($path);
@@ -18,19 +30,29 @@ class PHPStyle
     public function getPhpCsFixerConfig(StyleConfig $style): ConfigInterface
     {
         $paths = $style->getPaths();
-
         $finder = Finder::create()
             ->in($paths);
 
         $config = new Config();
 
-        $phpcsfixer_rules = [];
-
-        $rules = $style->getRules();
-        if (isset($rules['PSR12'])) {
-            $phpcsfixer_rules['@PSR12'] = true;
+        if ($style->isRisky()) {
+            $config->setRiskyAllowed(true);
         }
-        $phpcsfixer_rules['array_syntax'] = ['syntax' => 'short'];
+
+        $phpcsfixer_rules = [
+            '@PSR12' => true,
+            'array_syntax' => ['syntax' => 'short'],
+            'backtick_to_shell_exec' => true,
+            'no_mixed_echo_print' => true,
+        ];
+
+        $version = $style->getPhpVersion();
+        if ($version) {
+            $phpcsfixer_rules[self::PHPVERSION_RULE_MAP[$version]] = true;
+            if ($style->isRisky()) {
+                $phpcsfixer_rules[self::PHPVERSION_RULE_MAP[$version] . ':risky'] = true;
+            }
+        }
 
         return $config->setRules($phpcsfixer_rules)->setFinder($finder);
     }

@@ -1,17 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PHPStyle;
 
 class StyleConfig
 {
-    private array $paths;
+    /** @var array */
+    private $paths;
 
-    private array $rules;
+    /** @var string */
+    private $phpv;
+
+    /** @var bool */
+    private $is_risky;
 
     public function __construct(array $values)
     {
         $this->paths = [];
-        $this->rules = [];
+        $this->is_risky = false;
 
         if (!isset($values['parameters'])) {
             throw new InvalidConfigException();
@@ -21,10 +28,20 @@ class StyleConfig
         if (isset($parameters['paths'])) {
             $this->paths = $parameters['paths'];
         }
-
-        if (isset($parameters['rules'])) {
-            $this->rules = $parameters['rules'];
+        if (isset($parameters['php'])) {
+            $this->phpv = $parameters['php'];
         }
+        if (isset($parameters['risky'])) {
+            $this->is_risky = $parameters['risky'];
+        }
+    }
+
+    public function getPhpVersion(): ?string
+    {
+        if ($this->phpv !== null) {
+            return (string) $this->phpv;
+        }
+        return $this->phpv;
     }
 
     public function getPaths(): array
@@ -32,8 +49,8 @@ class StyleConfig
         return $this->paths;
     }
 
-    public function getRules(): array
+    public function isRisky(): bool
     {
-        return $this->rules;
+        return $this->is_risky;
     }
 }

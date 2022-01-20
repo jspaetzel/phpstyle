@@ -1,6 +1,6 @@
 parameters:
-	paths:
-		- src
-		- tests
-	rules:
-	    - PSR12
+    php: 7.1
+    risky: false
+    paths:
+        - src
+        - tests

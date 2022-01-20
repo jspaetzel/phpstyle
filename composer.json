@@ -1,6 +1,6 @@
 {
   "name": "jspaetzel/phpstyle",
-  "description": "PHPStyle - Automated, opinionated styling for PHP",
+  "description": "PHPStyle - Make prettier PHP fast",
   "license": ["MIT"],
   "prefer-stable": true,
   "require": {
