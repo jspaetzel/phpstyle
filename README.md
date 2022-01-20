@@ -1,6 +1,6 @@
 # PHPStyle
 
-A slim opinionated wrapper around PHPCSFixer.
+A slim, opinionated wrapper around PHPCSFixer.
 
 This comes preloaded with sane style choices for most PHP applications. You should be able to safely run it on most code out of the box.
 
