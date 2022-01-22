@@ -21,7 +21,7 @@ class StyleConfig
     /**
      * @var array
      */
-    private $files_to_exclude;
+    private $to_exclude;
 
     public function __construct(array $values)
     {
@@ -36,8 +36,8 @@ class StyleConfig
         if (isset($parameters['paths'])) {
             $this->paths = $parameters['paths'];
         }
-        if (isset($parameters['exclude'])) {
-            $this->setExclude($parameters['exclude']);
+        if (isset($parameters['excludePaths'])) {
+            $this->setExclude($parameters['excludePaths']);
         }
         if (isset($parameters['php'])) {
             $this->phpv = $parameters['php'];
@@ -65,24 +65,15 @@ class StyleConfig
         return $this->is_risky;
     }
 
-    public function getExcludedFiles(): array
+    public function getExcluded(): array
     {
-        return $this->files_to_exclude ?? [];
+        return $this->to_exclude ?? [];
     }
 
-    public function getExcludedDirectories(): array
+    private function setExclude($exclude_paths): void
     {
-        return $this->dirs_to_exclude ?? [];
-    }
-
-    private function setExclude($paths): void
-    {
-        foreach ($paths as $path) {
-            if (strpos($path, '.php')) {
-                $this->files_to_exclude[] = $path;
-            } else {
-                $this->dirs_to_exclude[] = $path;
-            }
+        foreach ($exclude_paths as $exclude_path) {
+            $this->to_exclude[] = $exclude_path;
         }
     }
 }

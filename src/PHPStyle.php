@@ -30,15 +30,17 @@ class PHPStyle
     public function getPhpCsFixerConfig(StyleConfig $style): ConfigInterface
     {
         $finder = Finder::create();
-        $paths = $style->getPaths();
-        $finder = $finder->in($paths);
 
-        $excluded_dirs = $style->getExcludedDirectories();
-        if ($excluded_dirs) {
-            $finder->exclude($excluded_dirs);
+        // use cwd since this should be run from root of project
+        $in_dir = getcwd();
+        $finder = $finder->in($in_dir);
+
+        $paths = $style->getPaths();
+        if ($paths) {
+            $finder->path($paths);
         }
 
-        $excluded_files = $style->getExcludedFiles();
+        $excluded_files = $style->getExcluded();
         if ($excluded_files) {
             $finder->notPath($excluded_files);
         }
