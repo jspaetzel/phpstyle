@@ -13,7 +13,7 @@ composer require jspaetzel/phpstyle --dev
 2. Run the setup script to download php-cs-fixer and create default configs: 
 
 ```
-./vendor/bin/phpstyle-setup`
+./vendor/bin/phpstyle-setup
 ```
 
 3. Review the `phpstyle.neon` configuration file and make changes if necessary
