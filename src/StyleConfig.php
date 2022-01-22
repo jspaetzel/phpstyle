@@ -79,9 +79,9 @@ class StyleConfig
     {
         foreach ($paths as $path) {
             if (strpos($path, '.php')) {
-                $this->files_to_exclude = $path;
+                $this->files_to_exclude[] = $path;
             } else {
-                $this->dirs_to_exclude = $path;
+                $this->dirs_to_exclude[] = $path;
             }
         }
     }

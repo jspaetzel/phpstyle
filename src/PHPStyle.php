@@ -29,7 +29,6 @@ class PHPStyle
 
     public function getPhpCsFixerConfig(StyleConfig $style): ConfigInterface
     {
-
         $finder = Finder::create();
         $paths = $style->getPaths();
         $finder = $finder->in($paths);
