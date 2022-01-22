@@ -33,5 +33,8 @@ parameters:
     paths:
         - src
         - tests
+    excludePaths:
+        - src/path/you/want/to/skip
+        - src/or/a/file-to-skip.php
 ```
 > Want to enable more rules? change `risky: true` and then see what happens. But watch out, these are risky! ⚠
