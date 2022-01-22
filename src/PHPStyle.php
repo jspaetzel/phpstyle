@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PHPStyle;
 
+use Nette\Neon\Exception;
 use Nette\Neon\Neon;
 use PhpCsFixer\Config;
 use PhpCsFixer\ConfigInterface;
@@ -23,7 +24,12 @@ class PHPStyle
 
     public function getStyleConfig($path): StyleConfig
     {
-        $value = Neon::decodeFile($path);
+        try {
+            $value = Neon::decodeFile($path);
+        } catch (Exception $tr) {
+            throw new InvalidConfigException($tr->getMessage());
+        }
+
         return new StyleConfig($value);
     }
 

@@ -6,4 +6,4 @@ parameters:
         - tests
     excludePaths:
         - src/path/you/want/to/skip
-        - src/or/a/file.php
+        - src/or/a/file-to-skip.php
