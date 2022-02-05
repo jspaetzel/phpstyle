@@ -52,6 +52,7 @@ class StyleConfig
         if ($this->phpv !== null) {
             return (string) $this->phpv;
         }
+
         return $this->phpv;
     }
 

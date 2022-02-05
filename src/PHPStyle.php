@@ -59,9 +59,19 @@ class PHPStyle
 
         $phpcsfixer_rules = [
             '@PSR12' => true,
+            '@Symfony' => true,
             'array_syntax' => ['syntax' => 'short'],
             'backtick_to_shell_exec' => true,
             'no_mixed_echo_print' => true,
+            'concat_space' => ['spacing' => 'one'],
+            'global_namespace_import' => true,
+            'fully_qualified_strict_types' => true,
+            'increment_style' => false,
+            'phpdoc_align' => ['align' => 'left'],
+            'phpdoc_separation' => false,
+            'phpdoc_summary' => false,
+            'single_line_throw' => false,
+            'yoda_style' => false,
         ];
 
         $version = $style->getPhpVersion();
@@ -78,6 +88,7 @@ class PHPStyle
     public function getConfig(string $path): ConfigInterface
     {
         $style = $this->getStyleConfig($path);
+
         return $this->getPhpCsFixerConfig($style);
     }
 }
