@@ -64,11 +64,13 @@ class PHPStyle
         $phpcsfixer_rules = [
             '@PhpCsFixer' => true,
             '@DoctrineAnnotation' => true,
+            'blank_line_before_statement' => ['statements' => ['return']],
             'concat_space' => ['spacing' => 'one'],
             'declare_parentheses' => true,
             'global_namespace_import' => true,
             'general_phpdoc_annotation_remove' => ['annotations' => $useless_annotations],
             'increment_style' => false,
+            'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
             'phpdoc_line_span' => ['property' => 'single'],
             'phpdoc_separation' => false,
             'phpdoc_summary' => false,
