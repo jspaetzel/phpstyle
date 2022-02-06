@@ -58,16 +58,10 @@ class PHPStyle
         }
 
         $phpcsfixer_rules = [
-            '@PSR12' => true,
-            '@Symfony' => true,
-            'array_syntax' => ['syntax' => 'short'],
-            'backtick_to_shell_exec' => true,
-            'no_mixed_echo_print' => true,
+            '@PhpCsFixer' => true,
             'concat_space' => ['spacing' => 'one'],
             'global_namespace_import' => true,
-            'fully_qualified_strict_types' => true,
             'increment_style' => false,
-            'phpdoc_align' => ['align' => 'left'],
             'phpdoc_separation' => false,
             'phpdoc_summary' => false,
             'single_line_throw' => false,
