@@ -57,13 +57,23 @@ class PHPStyle
             $config->setRiskyAllowed(true);
         }
 
+        // This type of information is available to you in your VCS
+        // and you should be using a CODEOWNERS file to establish ownership of code
+        $useless_annotations = ['author', 'package', 'subpackage', 'version'];
+
         $phpcsfixer_rules = [
             '@PhpCsFixer' => true,
+            '@DoctrineAnnotation' => true,
             'concat_space' => ['spacing' => 'one'],
+            'declare_parentheses' => true,
             'global_namespace_import' => true,
+            'general_phpdoc_annotation_remove' => ['annotations' => $useless_annotations],
             'increment_style' => false,
+            'phpdoc_line_span' => ['property' => 'single'],
             'phpdoc_separation' => false,
             'phpdoc_summary' => false,
+            'php_unit_internal_class' => false,
+            'php_unit_test_class_requires_covers' => false,
             'single_line_throw' => false,
             'yoda_style' => false,
         ];

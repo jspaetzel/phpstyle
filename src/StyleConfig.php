@@ -14,13 +14,11 @@ class StyleConfig
 
     /** @var bool */
     private $is_risky;
-    /**
-     * @var array
-     */
+
+    /** @var array */
     private $dirs_to_exclude;
-    /**
-     * @var array
-     */
+
+    /** @var array */
     private $to_exclude;
 
     public function __construct(array $values)
