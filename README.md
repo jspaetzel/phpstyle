@@ -5,23 +5,31 @@ A slim, opinionated wrapper around PHPCSFixer.
 This comes preloaded with sane style choices for most PHP applications. You should be able to safely run it on most code out of the box.
 
 ## 🏗 Setup
+
 1. Require the package
-```neon
+```bash
 composer require jspaetzel/phpstyle --dev
 ```
 
-2. Run the setup script to download php-cs-fixer and create default configs: 
+2. Run the [setup script](https://github.com/jspaetzel/phpstyle/blob/main/phpstyle-setup):
 
-```
+```bash
 ./vendor/bin/phpstyle-setup
 ```
 
-3. Review the `phpstyle.neon` configuration file and make changes if necessary
+> 🗒 Note: This script is for convenience, you can alternatively do the same steps manually by [installing php-cs-fixer](https://cs.symfony.com/#installation), and copying two files ([.php-cs-fixer.dist.php](https://github.com/jspaetzel/phpstyle/blob/main/.php-cs-fixer.dist.php) and [phpstyle.neon](https://raw.githubusercontent.com/jspaetzel/phpstyle/main/phpstyle.neon)) to your project root.
 
-4. Run the php-cs-fixer to fix your code
+3. Review the `phpstyle.neon` configuration file. Feel free to make changes to this file at any time.
+
+
+4. Run php-cs-fixer to fix your code
 ```bash
 ./vendor/bin/php-cs-fixer fix
 ```
+
+> 🗒 Note: php-cs-fixer is integrated with PHPStorm and other editors and so PHPStyle should work with them as well.
+
+That's it, your code is styled!
 
 ## ⚙ Configuration
 
