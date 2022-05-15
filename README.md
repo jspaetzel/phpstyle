@@ -1,8 +1,10 @@
-# PHPStyle ✨
+# PHP.Style ✨
 
 A slim, opinionated wrapper around PHPCSFixer.
 
 This comes preloaded with sane style choices for most PHP applications. You should be able to safely run it on most code out of the box.
+
+https://php.style/
 
 ## 🏗 Setup
 
@@ -11,18 +13,12 @@ This comes preloaded with sane style choices for most PHP applications. You shou
 composer require jspaetzel/phpstyle --dev
 ```
 
-2. Run the [setup script](https://github.com/jspaetzel/phpstyle/blob/main/phpstyle-setup):
-
-```bash
-./vendor/bin/phpstyle-setup
-```
-
-> 🗒 Note: This script is for convenience, you can alternatively do the same steps manually by [installing php-cs-fixer](https://cs.symfony.com/#installation), and copying two files ([.php-cs-fixer.dist.php](https://github.com/jspaetzel/phpstyle/blob/main/.php-cs-fixer.dist.php) and [phpstyle.neon](https://raw.githubusercontent.com/jspaetzel/phpstyle/main/phpstyle.neon)) to your project root.
-
-3. Review the `phpstyle.neon` configuration file. Feel free to make changes to this file at any time.
+> 🗒 Note: This package is a [composer plugin](https://getcomposer.org/doc/articles/plugins.md), when installed it will create an initial `phpstyle.neon` file and a managed `.php-cs-fixer.dist.php` file in the root of your project. You may be prompted before this action takes place.
 
 
-4. Run php-cs-fixer to fix your code
+2. Review the `phpstyle.neon` configuration file. Feel free to make changes to this file at any time.
+
+3. Run php-cs-fixer to fix your code
 ```bash
 ./vendor/bin/php-cs-fixer fix
 ```

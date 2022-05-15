@@ -1,14 +1,16 @@
 {
   "name": "jspaetzel/phpstyle",
+  "type": "composer-plugin",
   "description": "PHPStyle - Make prettier PHP fast",
   "license": ["MIT"],
   "prefer-stable": true,
   "require": {
     "php": "^7.1|^8.0",
+    "composer-plugin-api": "^1.0 || ^2.0",
     "nette/neon": "^3.3"
   },
   "bin": [
-    "phpstyle-setup"
+    "bin/php-cs-fixer"
   ],
   "autoload": {
     "psr-4": {
@@ -21,7 +23,12 @@
     }
   },
   "require-dev": {
+    "ext-json": "*",
+    "composer/composer": "^1.0 || ^2.0",
     "friendsofphp/php-cs-fixer": "3.8",
     "phpunit/phpunit": "^9"
+  },
+  "extra": {
+    "class": "PHPStyle\\Plugin"
   }
 }
