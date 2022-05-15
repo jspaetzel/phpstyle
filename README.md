@@ -1,4 +1,4 @@
-# PHP.Style ✨
+# PHPStyle ✨
 
 A slim, opinionated wrapper around PHPCSFixer.
 
