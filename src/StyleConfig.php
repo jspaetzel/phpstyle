@@ -38,7 +38,11 @@ class StyleConfig
             $this->setExclude($parameters['excludePaths']);
         }
         if (isset($parameters['php'])) {
-            $this->phpv = $parameters['php'];
+            if (!is_string($parameters['php'])) {
+                $this->phpv = number_format($parameters['php'], 1);
+            } else {
+                $this->phpv = $parameters['php'];
+            }
         }
         if (isset($parameters['risky'])) {
             $this->is_risky = $parameters['risky'];

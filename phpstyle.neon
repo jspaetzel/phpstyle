@@ -1,5 +1,5 @@
 parameters:
-    php: 7.1
+    php: 8.0
     risky: false
     paths:
         - src
