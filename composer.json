@@ -7,11 +7,15 @@
   "require": {
     "php": "^7.1|^8.0",
     "composer-plugin-api": "^1.0 || ^2.0",
-    "nette/neon": "^3.3"
+    "nette/neon": "^3.3",
+    "php-cs-fixer/shim": "^3.8"
   },
-  "bin": [
-    "bin/php-cs-fixer"
-  ],
+  "require-dev": {
+    "ext-json": "*",
+    "composer/composer": "^1.0 || ^2.0",
+    "friendsofphp/php-cs-fixer": "^3.8",
+    "phpunit/phpunit": "^9"
+  },
   "autoload": {
     "psr-4": {
       "PHPStyle\\": "src/"
@@ -21,12 +25,6 @@
     "psr-4": {
       "PHPStyle\\Tests\\": "tests/"
     }
-  },
-  "require-dev": {
-    "ext-json": "*",
-    "composer/composer": "^1.0 || ^2.0",
-    "friendsofphp/php-cs-fixer": "3.8",
-    "phpunit/phpunit": "^9"
   },
   "extra": {
     "class": "PHPStyle\\Plugin"
