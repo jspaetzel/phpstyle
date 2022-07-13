@@ -20,21 +20,21 @@ function create_composer_json($package_dir): string
     $package_dir = json_encode($package_dir);
 
     return <<<JSON
-{
-    "repositories": [
         {
-            "type": "path",
-            "url": {$package_dir},
-            "options": {
-                "symlink": false
+            "repositories": [
+                {
+                    "type": "path",
+                    "url": {$package_dir},
+                    "options": {
+                        "symlink": false
+                    }
+                }
+            ],
+            "require":{
+                "jspaetzel/phpstyle": "dev-main"
             }
         }
-    ],
-    "require":{
-        "jspaetzel/phpstyle": "dev-main"
-    }
-}
-JSON;
+        JSON;
 }
 
 function install()
