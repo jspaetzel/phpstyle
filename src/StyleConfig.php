@@ -16,9 +16,6 @@ class StyleConfig
     private $is_risky;
 
     /** @var array */
-    private $dirs_to_exclude;
-
-    /** @var array */
     private $to_exclude;
 
     public function __construct(array $values)

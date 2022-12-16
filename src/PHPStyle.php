@@ -20,6 +20,7 @@ class PHPStyle
         '7.4' => '@PHP74Migration',
         '8.0' => '@PHP80Migration',
         '8.1' => '@PHP81Migration',
+        '8.2' => '@PHP82Migration',
     ];
 
     public function getStyleConfig($path): StyleConfig
